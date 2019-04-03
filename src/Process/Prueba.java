@@ -1,9 +1,12 @@
 package Process;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class Prueba {
 		pb.directory(new File("."));
 
 		BufferedReader in = null;
+		
+		Writer out = null;
 
 		try {
 			Process proceso = pb.start();
@@ -26,6 +31,11 @@ public class Prueba {
 			String linea;
 			while ((linea  = in.readLine()) != null)
 				System.out.println(linea);
+			
+			out = new BufferedWriter(
+					new OutputStreamWriter(linea));
+			
+			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
